@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -26,7 +27,7 @@ export default function Navbar() {
   const pathname = usePathname()
 
   return (
-    <motion.nav 
+    <motion.nav
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -34,14 +35,20 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-[9.94vh] items-center justify-between">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
             className="flex items-center"
           >
             <Link href="/" className="flex-shrink-0">
-              <span className="text-xl font-semibold text-gray-100">MyLogo</span>
+              <Image
+                src="/images/LogoAbout.jpg"
+                alt="Company Logo"
+                width={40} // Adjust width and height as needed
+                height={40}
+                className="rounded-full"
+              />
             </Link>
           </motion.div>
           <div className="hidden md:block">
@@ -55,8 +62,8 @@ export default function Navbar() {
                   transition={{ delay: 0.1 * (index + 1), duration: 0.5 }}
                   className={`px-3 py-2 text-sm font-medium transition-all duration-300 ease-in-out ${
                     pathname === item.href
-                      ? 'text-purple-400'
-                      : 'text-gray-300 hover:text-purple-400'
+                      ? "text-purple-400"
+                      : "text-gray-300 hover:text-purple-400"
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -87,7 +94,10 @@ export default function Navbar() {
                   </motion.div>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-[250px] sm:w-[300px] bg-gray-900">
+              <SheetContent
+                side="right"
+                className="w-[250px] sm:w-[300px] bg-gray-900"
+              >
                 <nav className="mt-5 flex flex-col space-y-3">
                   {navItems.map((item, index) => (
                     <motion.div
@@ -100,8 +110,8 @@ export default function Navbar() {
                         href={item.href}
                         className={`block px-3 py-2 text-base font-medium transition-colors duration-300 ease-in-out ${
                           pathname === item.href
-                            ? 'text-purple-400'
-                            : 'text-gray-300 hover:text-purple-400'
+                            ? "text-purple-400"
+                            : "text-gray-300 hover:text-purple-400"
                         }`}
                         onClick={() => setIsOpen(false)}
                       >
@@ -116,5 +126,5 @@ export default function Navbar() {
         </div>
       </div>
     </motion.nav>
-  )
+  );
 }

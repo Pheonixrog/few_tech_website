@@ -16,9 +16,6 @@ export default function AboutPage() {
         className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-white"
       >
         <div className="flex flex-col items-center">
-          {/* Logo Section */}
-          <Image src="/images/LogoAbout.jpg" alt="Company Logo" width={150} height={150} className="mb-8" />
-
           {/* CEO Section */}
           <div className="text-center mb-16 flex flex-col items-center">
   <Image src="/images/CEO.jpg" alt="CEO" width={150} height={150} className="rounded-full mb-4" />
