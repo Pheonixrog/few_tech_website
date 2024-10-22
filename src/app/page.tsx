@@ -3,6 +3,8 @@ import { motion, useAnimation } from 'framer-motion'
 import { useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import Image from 'next/image'
+import { AnimationControls } from 'framer-motion'
+import { useRef } from 'react'
 
 const services = [
   {
@@ -69,8 +71,20 @@ export default function Home() {
   )
 }
 
-function ServiceBlock({ service, index }) {
-  const controls = useAnimation()
+// Define the type for the service object
+interface Service {
+  title: string
+  description: string
+  imageUrl: string
+}
+
+interface ServiceBlockProps {
+  service: Service
+  index: number
+}
+
+function ServiceBlock({ service, index }: ServiceBlockProps) {
+  const controls: AnimationControls = useAnimation()
   const { ref, inView } = useInView({
     threshold: 0.2,
     triggerOnce: true,
@@ -120,7 +134,7 @@ function ServiceBlock({ service, index }) {
           width={500}
           height={300}
           layout="responsive"
-          className="rounded-[5%] shadow-lg object-cover w-full h-auto"
+          className="rounded-full shadow-lg object-cover w-full h-auto"
         />
       </div>
     </motion.div>
