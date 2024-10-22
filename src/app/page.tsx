@@ -134,7 +134,7 @@ function ServiceBlock({ service, index }: ServiceBlockProps) {
           width={500}
           height={300}
           layout="responsive"
-          className="rounded-full shadow-lg object-cover w-full h-auto"
+          className="rounded-[5%] shadow-lg object-cover w-full h-auto"
         />
       </div>
     </motion.div>
