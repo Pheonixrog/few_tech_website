@@ -60,7 +60,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * (index + 1), duration: 0.5 }}
-                  className={`px-3 py-2 text-sm font-medium transition-all duration-300 ease-in-out ${
+                  className={`px-3 py-2 text-lg font-medium transition-all duration-300 ease-in-out ${
                     pathname === item.href
                       ? "text-purple-400"
                       : "text-gray-300 hover:text-purple-400"
@@ -108,7 +108,7 @@ export default function Navbar() {
                     >
                       <Link
                         href={item.href}
-                        className={`block px-3 py-2 text-base font-medium transition-colors duration-300 ease-in-out ${
+                        className={`block px-3 py-2 text-lg font-medium transition-colors duration-300 ease-in-out ${
                           pathname === item.href
                             ? "text-purple-400"
                             : "text-gray-300 hover:text-purple-400"
